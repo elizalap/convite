@@ -73,13 +73,24 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /*PHOTO BANNER*/
-.photo-banner{
-  background: no-repeat center url( "./assets/photo-banner.jpg");
-  background-size: cover;
-  background-attachment: fixed;
+.photo-banner {
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
 
   padding-inline: 5rem !important;
   height: 40rem;
+}
+
+.photo-banner::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("./assets/photo-banner.jpg") center / cover no-repeat;
+  z-index: -1;
+  transform: translateZ(0);
+  pointer-events: none;
+  will-change: transform;
 }
 
 /*FLOWER BANNER*/
